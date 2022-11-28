@@ -1,4 +1,13 @@
-<?php include __DIR__ . "/partials/functions.php"; ?>
+<?php
+include __DIR__ . "/partials/functions.php";
+session_start();
+
+if (!empty($length_password) && $length_password >= 5) {
+    header("Location: ./partials/result.php");
+    $_SESSION["password"] = password_generator($length_password, $password_characters);
+    var_dump($_SESSION);
+}
+?>
 
 
 <!DOCTYPE html>
@@ -26,6 +35,7 @@
                     <p> La password deve avere come minimo 5 caratteri</p>
                 <?php } else {
                     $password = password_generator($length_password, $password_characters);
+
                 ?>
                     <p>La tua password è
                         <?php echo $password ?>
