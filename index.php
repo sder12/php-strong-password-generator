@@ -21,7 +21,22 @@ foreach ($pass_num as $num) {
 
 //ALPHABET + NUMBERS + SYMBOLS
 $password_characters = array_merge($pass_alphabet, $pass_numbers, $pass_symbols);
-var_dump($password_characters);
+// var_dump($password_characters);
+
+function password_generator($passlength, $array)
+{
+    $new_array = [];
+    for ($i = 0; $i < $passlength; $i++) {
+        $rnd_number = rand(0, count($array) - 1);
+        $new_array[] = $array[$rnd_number];
+    }
+    return $new_array;
+}
+
+$array_try = password_generator($length_password, $password_characters);
+var_dump($array_try);
+
+
 
 
 ?>
@@ -44,6 +59,19 @@ var_dump($password_characters);
             <h2>Genera una password sicura </h2>
         </header>
         <main>
+            <div>
+                <?php if (!$length_password && $length_password != 0) { ?>
+                    <p> Nessun parametro valido inserito </p>
+                <?php } elseif ($length_password == 0) { ?>
+                    <p> Zero non è un parametro valido </p>
+                <?php } else {; ?>
+                    <p>La tua password è</p>
+                <?php }; ?>
+            </div>
+
+
+
+
             <!-- FORM -->
             <form action="index.php" method="GET">
 
@@ -61,6 +89,8 @@ var_dump($password_characters);
 
                 </div>
             </form>
+
+
 
         </main>
     </div>
