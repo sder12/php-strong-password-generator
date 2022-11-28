@@ -1,5 +1,5 @@
 <?php
-var_dump('Hello debug')
+var_dump($_GET);
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +15,29 @@ var_dump('Hello debug')
 
 <body>
     <div class="container">
-        <header>
+        <header class="text-center">
             <h1>Strong Password Generator</h1>
             <h2>Genera una password sicura </h2>
         </header>
         <main>
-            <p>Lunghezza password: </p>
+            <!-- FORM -->
+            <form action="index.php" method="GET">
+
+                <!-- Password Length -->
+                <div class="form-group">
+                    <label for="passwordlength">Lunghezza password:</label>
+                    <input type="text" class="form-control" id="passwordlength" name="passwordlength">
+
+                </div>
+
+                <!-- Buttons -->
+                <div class="mt-4">
+                    <button class="btn btn-primary" type="submit">Invia</button>
+                    <button class="btn btn-secondary" type="reset">Annulla</button>
+
+                </div>
+            </form>
+
         </main>
     </div>
 </body>
