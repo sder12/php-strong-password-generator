@@ -7,7 +7,7 @@ var_dump($length_password);
 $pass_alphabet = array_merge(range('A', 'Z'), range('a', 'z'));
 //symbols
 $pass_symbols = [];
-$symbols = "~`!@#$%^&*()_-+={[}]|\:;<,>.?/";
+$symbols = "~`!@#$%^&*()_-+={[}]|\:;<>.?/";
 foreach (str_split($symbols) as $symbol) {
     $pass_symbols[] = $symbol;
 }
@@ -30,13 +30,9 @@ function password_generator($passlength, $array)
         $rnd_number = rand(0, count($array) - 1);
         $new_array[] = $array[$rnd_number];
     }
-    return $new_array;
+    $new_array_to_string = implode($new_array);
+    return $new_array_to_string;
 }
-
-$array_try = password_generator($length_password, $password_characters);
-var_dump($array_try);
-
-
 
 
 ?>
@@ -62,10 +58,14 @@ var_dump($array_try);
             <div>
                 <?php if (!$length_password && $length_password != 0) { ?>
                     <p> Nessun parametro valido inserito </p>
-                <?php } elseif ($length_password == 0) { ?>
-                    <p> Zero non è un parametro valido </p>
-                <?php } else {; ?>
-                    <p>La tua password è</p>
+                <?php } elseif ($length_password < 5) { ?>
+                    <p> La password deve avere come minimo 5 caratteri</p>
+                <?php } else {
+                    $password = password_generator($length_password, $password_characters);
+                ?>
+                    <p>La tua password è
+                        <?php echo $password ?>
+                    </p>
                 <?php }; ?>
             </div>
 
