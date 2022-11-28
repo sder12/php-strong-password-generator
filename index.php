@@ -1,5 +1,6 @@
 <?php
-var_dump($_GET);
+$length_password = intval($_GET['passwordlength']) ?? "";
+var_dump($length_password);
 ?>
 
 <!DOCTYPE html>
