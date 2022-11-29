@@ -13,9 +13,9 @@ session_start();
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-secondary">
 
-    <div class="container text-center mt-5">
+    <div class="container text-center bg-light rounded-3 p-4 mt-5">
 
         <h4>Password suggerita: </h4>
         <h4><?php echo $_SESSION["password"]; ?></h4>

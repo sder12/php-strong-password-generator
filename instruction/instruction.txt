@@ -21,3 +21,8 @@ Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, l
 Possono essere scelti singolarmente (es. solo numeri) oppure possono essere combinati fra loro 
 (es. numeri e simboli, oppure tutti e tre insieme).
 Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
+
+///////////////////////////
+ERRORI: 
+1. quando inserisco lettere invece che numeri nell'input
+2. quando non seleziono nessun filtro 
